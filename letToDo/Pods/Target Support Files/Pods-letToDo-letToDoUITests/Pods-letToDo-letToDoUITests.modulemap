@@ -1,0 +1,6 @@
+framework module Pods_letToDo_letToDoUITests {
+  umbrella header "Pods-letToDo-letToDoUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
