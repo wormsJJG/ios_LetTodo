@@ -55,7 +55,7 @@ void MemoryRemoteDocumentCache::Remove(const DocumentKey& key) {
   docs_ = docs_.erase(key);
 }
 
-MutableDocument MemoryRemoteDocumentCache::Get(const DocumentKey& key) {
+MutableDocument MemoryRemoteDocumentCache::Get(const DocumentKey& key) const {
   const auto& entry = docs_.get(key);
   // Note: We create an explicit copy to prevent modifications of the backing
   // data.
@@ -63,7 +63,7 @@ MutableDocument MemoryRemoteDocumentCache::Get(const DocumentKey& key) {
 }
 
 MutableDocumentMap MemoryRemoteDocumentCache::GetAll(
-    const DocumentKeySet& keys) {
+    const DocumentKeySet& keys) const {
   MutableDocumentMap results;
   for (const DocumentKey& key : keys) {
     // Make sure each key has a corresponding entry, which is nullopt in case
@@ -74,8 +74,19 @@ MutableDocumentMap MemoryRemoteDocumentCache::GetAll(
   return results;
 }
 
+// This method should only be called from the IndexBackfiller if LevelDB is
+// enabled.
+MutableDocumentMap MemoryRemoteDocumentCache::GetAll(const std::string&,
+                                                     const model::IndexOffset&,
+                                                     size_t) const {
+  util::ThrowInvalidArgument(
+      "getAll(String, IndexOffset, int) is not supported.");
+}
+
 MutableDocumentMap MemoryRemoteDocumentCache::GetAll(
-    const model::ResourcePath& path, const model::IndexOffset& offset) {
+    const model::ResourcePath& path,
+    const model::IndexOffset& offset,
+    const absl::optional<size_t>) const {
   MutableDocumentMap results;
 
   // Documents are ordered by key, so we can use a prefix scan to narrow down

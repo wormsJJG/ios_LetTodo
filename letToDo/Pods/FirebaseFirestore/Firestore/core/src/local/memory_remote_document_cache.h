@@ -17,6 +17,7 @@
 #ifndef FIRESTORE_CORE_SRC_LOCAL_MEMORY_REMOTE_DOCUMENT_CACHE_H_
 #define FIRESTORE_CORE_SRC_LOCAL_MEMORY_REMOTE_DOCUMENT_CACHE_H_
 
+#include <string>
 #include <utility>
 #include <vector>
 
@@ -44,10 +45,15 @@ class MemoryRemoteDocumentCache : public RemoteDocumentCache {
            const model::SnapshotVersion& read_time) override;
   void Remove(const model::DocumentKey& key) override;
 
-  model::MutableDocument Get(const model::DocumentKey& key) override;
-  model::MutableDocumentMap GetAll(const model::DocumentKeySet& keys) override;
+  model::MutableDocument Get(const model::DocumentKey& key) const override;
+  model::MutableDocumentMap GetAll(
+      const model::DocumentKeySet& keys) const override;
+  model::MutableDocumentMap GetAll(const std::string&,
+                                   const model::IndexOffset&,
+                                   size_t) const override;
   model::MutableDocumentMap GetAll(const model::ResourcePath& path,
-                                   const model::IndexOffset& offset) override;
+                                   const model::IndexOffset& offset,
+                                   absl::optional<size_t>) const override;
   void SetIndexManager(IndexManager* manager) override;
 
   std::vector<model::DocumentKey> RemoveOrphanedDocuments(
