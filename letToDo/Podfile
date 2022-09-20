@@ -10,7 +10,6 @@ pod 'FirebaseAnalytics'
 pod 'FirebaseAuth'
 pod 'FirebaseFirestore'
 pod 'SnapKit'
-pod 'GoogleSignIn','5.0.2'
 
   target 'letToDoTests' do
     inherit! :search_paths
