@@ -11,6 +11,7 @@ import SnapKit
 class StartViewController: UIViewController {
     private let viewModel = StartViewModel()
     
+    //MARK: - UI
     let hiLabel: UILabel = {
         let label = UILabel()
         label.text = "안녕하세요 :)"
@@ -31,21 +32,26 @@ class StartViewController: UIViewController {
         let textField = UITextField()
         textField.placeholder = "아이디를 입력해주세요."
         textField.borderStyle = .roundedRect
+        textField.layer.borderWidth = 1
+        textField.layer.borderColor = UIColor.black.cgColor
+        textField.layer.cornerRadius = 10
         return textField
     }()
     let passwordTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "비밀번호를 입력해주세요."
         textField.borderStyle = .roundedRect
-        
+        textField.layer.borderWidth = 1
+        textField.layer.borderColor = UIColor.black.cgColor
+        textField.layer.cornerRadius = 10
         return textField
     }()
     let goLoginButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("로그인 하기", for: .normal)
         button.layer.cornerRadius = 10
-        button.setTitleColor(.black, for: .normal)
-        button.backgroundColor = .white
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = .black
         button.titleLabel?.font = UIFont.systemFont(ofSize: 20)
         button.layer.borderWidth = 1
         return button
@@ -54,8 +60,8 @@ class StartViewController: UIViewController {
         let button = UIButton(type: .system)
         button.setTitle("아직 회원이 아니십니까?", for: .normal)
         button.layer.cornerRadius = 10
-        button.setTitleColor(.black, for: .normal)
-        button.backgroundColor = .white
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = .black
         button.titleLabel?.font = UIFont.systemFont(ofSize: 20)
         button.layer.borderWidth = 1
         return button
@@ -75,36 +81,32 @@ class StartViewController: UIViewController {
         view.addSubview(passwordTextField)
         layout()
     }
-    
+    //MARK: - layout
     fileprivate func layout() {
         hiLabel.snp.makeConstraints { (label) in
-            label.width.equalTo(200)
-            label.height.equalTo(50)
             label.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(80)
-            label.left.equalTo(self.view.snp.left).offset(10)
+            label.left.equalTo(self.view.snp.left).offset(20)
         }
         IntroduceLabel.snp.makeConstraints { (label) in
-            label.width.equalTo(250)
-            label.height.equalTo(50)
             label.top.equalTo(hiLabel.snp.bottom).offset(20)
-            label.left.equalTo(self.view.snp.left).offset(10)
+            label.left.equalTo(self.view.snp.left).offset(20)
         }
         idTextField.snp.makeConstraints { (textField) in
-            textField.width.equalTo(300)
             textField.height.equalTo(50)
-            textField.top.equalTo(IntroduceLabel.snp.bottom).offset(80)
+            textField.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).offset(20)
+            textField.top.equalTo(IntroduceLabel.snp.bottom).offset(110)
             textField.centerX.equalToSuperview()
         }
         passwordTextField.snp.makeConstraints { (textField) in
-            textField.width.equalTo(300)
             textField.height.equalTo(50)
+            textField.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).offset(20)
             textField.top.equalTo(idTextField.snp.bottom).offset(10)
             textField.centerX.equalToSuperview()
         }
         goLoginButton.snp.makeConstraints { (button) in
-            button.width.equalTo(300)
             button.height.equalTo(50)
             button.bottom.equalTo(passwordTextField.snp.bottom).offset(70)
+            button.left.equalTo(view.safeAreaLayoutGuide.snp.left).offset(20)
             button.centerX.equalToSuperview()
         }
         goRegisterButton.snp.makeConstraints { (button) in
