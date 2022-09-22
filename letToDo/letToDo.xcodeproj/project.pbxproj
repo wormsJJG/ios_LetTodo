@@ -16,6 +16,8 @@
 		35581A9328D9ED7500D0B64D /* letToDoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35581A9228D9ED7500D0B64D /* letToDoUITests.swift */; };
 		35581A9528D9ED7500D0B64D /* letToDoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35581A9428D9ED7500D0B64D /* letToDoUITestsLaunchTests.swift */; };
 		35581AA228D9EDAD00D0B64D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 35581AA128D9EDAD00D0B64D /* GoogleService-Info.plist */; };
+		35C13AC828DCA4030032C12F /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C13AC728DCA4030032C12F /* RegisterViewController.swift */; };
+		35C13ACA28DCA4100032C12F /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C13AC928DCA4100032C12F /* RegisterViewModel.swift */; };
 		35C461DF28D9F8D50032B36F /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C461DE28D9F8D50032B36F /* StartViewController.swift */; };
 		35C461E128D9F95D0032B36F /* StartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C461E028D9F95D0032B36F /* StartViewModel.swift */; };
 		9C40301E8FA2895C3BFFBC12 /* Pods_letToDoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC01FD69C025A2C00954B4BC /* Pods_letToDoTests.framework */; };
@@ -55,6 +57,8 @@
 		35581A9228D9ED7500D0B64D /* letToDoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = letToDoUITests.swift; sourceTree = "<group>"; };
 		35581A9428D9ED7500D0B64D /* letToDoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = letToDoUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		35581AA128D9EDAD00D0B64D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		35C13AC728DCA4030032C12F /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		35C13AC928DCA4100032C12F /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		35C461DE28D9F8D50032B36F /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		35C461E028D9F95D0032B36F /* StartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewModel.swift; sourceTree = "<group>"; };
 		5B1E4989FCB5209C05A8DA12 /* Pods-letToDo-letToDoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-letToDo-letToDoUITests.release.xcconfig"; path = "Target Support Files/Pods-letToDo-letToDoUITests/Pods-letToDo-letToDoUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -152,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				35C461E028D9F95D0032B36F /* StartViewModel.swift */,
+				35C13AC928DCA4100032C12F /* RegisterViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -175,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				35C461DE28D9F8D50032B36F /* StartViewController.swift */,
+				35C13AC728DCA4030032C12F /* RegisterViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -462,6 +468,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				35C461E128D9F95D0032B36F /* StartViewModel.swift in Sources */,
+				35C13ACA28DCA4100032C12F /* RegisterViewModel.swift in Sources */,
+				35C13AC828DCA4030032C12F /* RegisterViewController.swift in Sources */,
 				35C461DF28D9F8D50032B36F /* StartViewController.swift in Sources */,
 				35581A7228D9ED7400D0B64D /* AppDelegate.swift in Sources */,
 				35581A7428D9ED7400D0B64D /* SceneDelegate.swift in Sources */,

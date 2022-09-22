@@ -12,7 +12,7 @@ class StartViewController: UIViewController {
     private let viewModel = StartViewModel()
     
     //MARK: - UI
-    let hiLabel: UILabel = {
+    private let hiLabel: UILabel = {
         let label = UILabel()
         label.text = "안녕하세요 :)"
         label.textAlignment = .center
@@ -20,7 +20,7 @@ class StartViewController: UIViewController {
         label.textColor = .black
         return label
     }()
-    let IntroduceLabel: UILabel = {
+    private let IntroduceLabel: UILabel = {
         let label = UILabel()
         label.text = "LetToDO입니다."
         label.textAlignment = .center
@@ -28,7 +28,7 @@ class StartViewController: UIViewController {
         label.textColor = .black
         return label
     }()
-    let idTextField: UITextField = {
+    private let idTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "아이디를 입력해주세요."
         textField.borderStyle = .roundedRect
@@ -37,7 +37,7 @@ class StartViewController: UIViewController {
         textField.layer.cornerRadius = 10
         return textField
     }()
-    let passwordTextField: UITextField = {
+    private let passwordTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "비밀번호를 입력해주세요."
         textField.borderStyle = .roundedRect
@@ -46,7 +46,7 @@ class StartViewController: UIViewController {
         textField.layer.cornerRadius = 10
         return textField
     }()
-    let goLoginButton: UIButton = {
+    private let goLoginButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("로그인 하기", for: .normal)
         button.layer.cornerRadius = 10
@@ -56,7 +56,7 @@ class StartViewController: UIViewController {
         button.layer.borderWidth = 1
         return button
     }()
-    let goRegisterButton: UIButton = {
+    private let goRegisterButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("아직 회원이 아니십니까?", for: .normal)
         button.layer.cornerRadius = 10
@@ -64,6 +64,7 @@ class StartViewController: UIViewController {
         button.backgroundColor = .black
         button.titleLabel?.font = UIFont.systemFont(ofSize: 20)
         button.layer.borderWidth = 1
+        button.addTarget(self, action: #selector(didTapRegisterButton), for: .touchUpInside)
         return button
     }()
     
@@ -73,6 +74,7 @@ class StartViewController: UIViewController {
     }
     
     fileprivate func viewControllerSetting() {
+        view.backgroundColor = .white
         view.addSubview(hiLabel)
         view.addSubview(goLoginButton)
         view.addSubview(goRegisterButton)
@@ -81,7 +83,7 @@ class StartViewController: UIViewController {
         view.addSubview(passwordTextField)
         layout()
     }
-    //MARK: - layout
+    //MARK: - Layout
     fileprivate func layout() {
         hiLabel.snp.makeConstraints { (label) in
             label.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(80)
@@ -116,29 +118,10 @@ class StartViewController: UIViewController {
             button.centerX.equalToSuperview()
         }
     }
+    @objc private func didTapRegisterButton() {
+        let registerVC = RegisterViewController()
+        self.present(registerVC, animated: true)
+    }
 }
 
-#if DEBUG
-import SwiftUI
-struct ViewControllerRepresentable: UIViewControllerRepresentable {
-    
-func updateUIViewController(_ uiView: UIViewController,context: Context) {
-        // leave this empty
-}
-@available(iOS 13.0.0, *)
-func makeUIViewController(context: Context) -> UIViewController{
-    StartViewController()
-    }
-}
-@available(iOS 13.0, *)
-struct ViewControllerRepresentable_PreviewProvider: PreviewProvider {
-    static var previews: some View {
-        Group {
-            ViewControllerRepresentable()
-                .ignoresSafeArea()
-                .previewDisplayName(/*@START_MENU_TOKEN@*/"Preview"/*@END_MENU_TOKEN@*/)
-                .previewDevice(PreviewDevice(rawValue: "iPhone 13 pro"))
-        }
-        
-    }
-} #endif
+
